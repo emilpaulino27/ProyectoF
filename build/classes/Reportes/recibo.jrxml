@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="689" pageHeight="377" orientation="Landscape" columnWidth="649" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="40c5c035-e0c2-4767-b08f-82751f12964f">
+	<property name="ireport.zoom" value="1.2100000000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ReciboNO." class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+
+     recibo.`ID_Recibo` AS recibo_ID_Recibo,
+     recibo.`Fecha` AS recibo_Fecha,
+     recibo.`Nombre` AS recibo_Nombre,
+     recibo.`Suma` AS recibo_Suma,
+     recibo.`Concepto` AS recibo_Concepto,
+     recibo.`TipoPago` AS recibo_TipoPago
+FROM
+     `clinica_dental_ep`.`recibo` recibo
+
+where ID_Recibo = $P{ReciboNO.}]]>
+	</queryString>
+	<field name="recibo_ID_Recibo" class="java.lang.Integer"/>
+	<field name="recibo_Fecha" class="java.sql.Date"/>
+	<field name="recibo_Nombre" class="java.lang.String"/>
+	<field name="recibo_Suma" class="java.lang.Integer"/>
+	<field name="recibo_Concepto" class="java.lang.String"/>
+	<field name="recibo_TipoPago" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<image>
+				<reportElement x="210" y="10" width="211" height="71" uuid="54c5a05b-554e-4321-9a79-e4ef17990add"/>
+				<imageExpression><![CDATA["C:\\Users\\Emil Paulino\\Documents\\NetBeansProjects\\ProyectoF\\build\\classes\\imagenes\\Logo Consultorio.png"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="534" y="32" width="136" height="35" forecolor="#6699FF" backcolor="#6699FF" uuid="98bf030a-8760-41db-9c59-e570ab206423"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="541" y="32" width="38" height="35" forecolor="#FFFFFF" uuid="b99af0bb-a59e-42b3-9282-e3450bcd603c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="18"/>
+				</textElement>
+				<text><![CDATA[RD$]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="590" y="32" width="59" height="35" forecolor="#FFFFFF" uuid="34283747-f0c8-45ca-a834-02cd12cf0d0c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recibo_Suma}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="238" splitType="Stretch">
+			<staticText>
+				<reportElement x="31" y="23" width="94" height="26" uuid="d62471e0-3ebe-4342-a8a5-794d2af32a80"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="20"/>
+				</textElement>
+				<text><![CDATA[Recibí de:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="143" y="23" width="334" height="26" uuid="fe234c0f-d1fe-4f81-9c8d-ab031ba69e17"/>
+				<textElement>
+					<font fontName="Times New Roman" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recibo_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="71" width="360" height="102" uuid="1a8e13e0-10f9-42f4-9e3c-4218de56a8ce"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recibo_Concepto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="33" y="71" width="134" height="26" uuid="5b8f76c7-c952-4953-aa82-c7ad269577e4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="20"/>
+				</textElement>
+				<text><![CDATA[Por concepto de ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="132" y="49" width="345" height="1" uuid="b528f22e-8403-4715-b92b-a92ff415fb6c"/>
+			</line>
+			<line>
+				<reportElement x="179" y="97" width="383" height="1" uuid="7ad2d307-f141-4c9f-ac1a-c6cc2dcae51b"/>
+			</line>
+			<line>
+				<reportElement x="210" y="211" width="247" height="1" uuid="4e000590-14f7-40e2-9179-ce06e5afb56f"/>
+			</line>
+			<staticText>
+				<reportElement x="252" y="212" width="155" height="26" uuid="cc626006-1509-499e-8cae-bae7abd2245e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="20"/>
+				</textElement>
+				<text><![CDATA[Firma del Personal]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="-24" y="-59" width="132" height="35" forecolor="#6699FF" backcolor="#6699FF" uuid="5c25d767-29a4-467d-a69e-21470ebc6134"/>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="-11" y="-59" width="108" height="35" forecolor="#FFFFFF" uuid="5bc49c7f-1466-4406-b1de-1cf006453556"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recibo_Fecha}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="179" y="119" width="383" height="1" uuid="1265a90e-c568-4fba-b2a8-4581289aa4b0"/>
+			</line>
+			<line>
+				<reportElement x="179" y="142" width="383" height="1" uuid="1efeb3a3-6abd-4c77-a12f-5698f7967c76"/>
+			</line>
+			<line>
+				<reportElement x="179" y="161" width="383" height="1" uuid="d465ac99-044b-41b2-a845-ed1b234f8b01"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

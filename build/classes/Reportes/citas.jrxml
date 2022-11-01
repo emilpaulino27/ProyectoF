@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1402a197-feb7-41eb-9194-bab8cbe1f8d2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[select * from clinica_dental_ep.citas]]>
+	</queryString>
+	<field name="ID_Citas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[ID con el que se identifica la cita.]]></fieldDescription>
+	</field>
+	<field name="Nom_Paciente" class="java.lang.String">
+		<fieldDescription><![CDATA[Nombre del Paciente]]></fieldDescription>
+	</field>
+	<field name="Nom_Doctor" class="java.lang.String">
+		<fieldDescription><![CDATA[Nombre del Doctor]]></fieldDescription>
+	</field>
+	<field name="Num_Tel_Pac" class="java.lang.String">
+		<fieldDescription><![CDATA[Teléfono del Paciente.]]></fieldDescription>
+	</field>
+	<field name="Fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[Fecha pautada para la cita.]]></fieldDescription>
+	</field>
+	<field name="Hora" class="java.sql.Time">
+		<fieldDescription><![CDATA[Hora pautada para la cita]]></fieldDescription>
+	</field>
+	<field name="Estado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="26e4f1b5-2b7f-4fe1-8e15-0ca80495369f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Reporte de Citas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="159" y="48" width="261" height="22" uuid="aeb973c7-7956-4489-a21c-80dc52444afc"/>
+				<text><![CDATA[Citas, Fechas y Estado]]></text>
+			</staticText>
+			<image>
+				<reportElement x="458" y="-9" width="95" height="79" uuid="a31d28ac-846a-44bc-8737-6a4ad8064090"/>
+				<imageExpression><![CDATA["C:\\Users\\Emil Paulino\\Documents\\NetBeansProjects\\ProyectoF\\build\\classes\\imagenes\\Logo Consultorio Dental Azul Pastel.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="e066cb6b-e1b5-488d-a5e5-953a265e6359"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="79" height="15" uuid="78d7ddfd-e590-49f3-bb02-929bb785f577"/>
+				<text><![CDATA[ID_Citas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="79" y="19" width="79" height="15" uuid="f48edda2-64fd-48a2-ac19-36626637b7e0"/>
+				<text><![CDATA[Nom_Paciente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="158" y="19" width="79" height="15" uuid="4934729c-f8ad-4cf6-8c16-8f834828a9db"/>
+				<text><![CDATA[Nom_Doctor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="237" y="19" width="79" height="15" uuid="6cbb6795-0fe6-4d99-88dc-f70f1120ea28"/>
+				<text><![CDATA[Num_Tel_Pac]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="316" y="19" width="79" height="15" uuid="be8dbcec-2b70-4f68-a0b3-212c4ce7caae"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="395" y="19" width="79" height="15" uuid="b513cad3-b6d1-4702-a9a0-47f15a751e9c"/>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="474" y="19" width="79" height="15" uuid="6ba6294e-19da-4726-8ab2-30df23da596d"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="4502ec5c-3c56-4f1f-a6f9-3fb10fe7a7cb"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="79" height="15" uuid="48cf85d8-6ad3-4563-a7fd-acd607a674ff"/>
+				<textFieldExpression><![CDATA[$F{ID_Citas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="79" y="0" width="79" height="15" uuid="cad47b0c-e31c-4dd6-a4e2-b40c61801f53"/>
+				<textFieldExpression><![CDATA[$F{Nom_Paciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="158" y="0" width="79" height="15" uuid="58221215-7726-4114-835c-065d969d2f53"/>
+				<textFieldExpression><![CDATA[$F{Nom_Doctor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="237" y="0" width="79" height="15" uuid="62ea2023-ceed-4f36-8138-43aa17f0690f"/>
+				<textFieldExpression><![CDATA[$F{Num_Tel_Pac}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="316" y="0" width="79" height="15" uuid="45ec26b2-7b51-4858-8edf-83a8501d62bc"/>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="395" y="0" width="79" height="15" uuid="8511011b-8cfe-4f20-9767-23b3ccae72ac"/>
+				<textFieldExpression><![CDATA[$F{Hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="474" y="0" width="79" height="15" uuid="debfdbfa-44dd-4c00-bb39-a851bbd21286"/>
+				<textFieldExpression><![CDATA[$F{Estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="b67a451b-9e50-43a5-9baa-c0abee1426fa"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="821c5f97-df23-40d4-a238-f1ffec3fd248"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="5fbb0fb2-ceaf-4ba7-aa6c-4a6c841c4647"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="a73c2e84-858f-4b5a-b72a-7864144d1074"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

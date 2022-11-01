@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c0cd3575-3a68-4077-b5e5-ad450413c47f">
+	<property name="ireport.zoom" value="1.6105100000000023"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="352"/>
+	<parameter name="Factura" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+
+     factura.`ID_Factura` AS factura_ID_Factura,
+     factura.`Fecha` AS factura_Fecha,
+     factura.`ID_DetalleFac` AS factura_ID_DetalleFac,
+     factura.`Nombre_Paciente` AS factura_Nombre_Paciente,
+     factura.`Apellido_Paciente` AS factura_Apellido_Paciente,
+     factura.`Tipo_Pago` AS factura_Tipo_Pago,
+     factura.`Usuario` AS factura_Usuario,
+     factura.`Total` AS factura_Total,
+     factura.`Doctor` AS factura_doctor,
+     detalle_factura.`ID_DetalleFac` AS detalle_factura_ID_DetalleFac,
+     detalle_factura.`ID_Detalle_Fact` AS detalle_factura_ID_Detalle_Fact,
+     detalle_factura.`ID_Servicio` AS detalle_factura_ID_Servicio,
+     detalle_factura.`Servicio` AS detalle_factura_Servicio,
+     detalle_factura.`Precio` AS detalle_factura_Precio,
+     detalle_factura.`Cantidad` AS detalle_factura_Cantidad,
+	CONCAT( 
+factura.`Nombre_Paciente`,' ',factura.`Apellido_Paciente`) AS paciente
+FROM
+     `clinica_dental_ep`.`factura` factura,
+     `clinica_dental_ep`.`detalle_factura` detalle_factura
+
+WHERE factura.ID_Factura = $P{Factura} 
+AND detalle_factura.ID_DetalleFac = $P{Factura}]]>
+	</queryString>
+	<field name="factura_ID_Factura" class="java.lang.Integer"/>
+	<field name="factura_Fecha" class="java.sql.Date"/>
+	<field name="factura_ID_DetalleFac" class="java.lang.Integer"/>
+	<field name="factura_Nombre_Paciente" class="java.lang.String"/>
+	<field name="factura_Apellido_Paciente" class="java.lang.String"/>
+	<field name="factura_Tipo_Pago" class="java.lang.String"/>
+	<field name="factura_Usuario" class="java.lang.String"/>
+	<field name="factura_Total" class="java.lang.Integer"/>
+	<field name="factura_doctor" class="java.lang.String"/>
+	<field name="detalle_factura_ID_DetalleFac" class="java.lang.Integer"/>
+	<field name="detalle_factura_ID_Detalle_Fact" class="java.lang.Integer"/>
+	<field name="detalle_factura_ID_Servicio" class="java.lang.Integer"/>
+	<field name="detalle_factura_Servicio" class="java.lang.String"/>
+	<field name="detalle_factura_Precio" class="java.lang.Integer"/>
+	<field name="detalle_factura_Cantidad" class="java.lang.Integer"/>
+	<field name="paciente" class="java.lang.String"/>
+	<title>
+		<band height="235" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="188" width="555" height="20" uuid="599f9d08-5892-4a5f-8758-09f321dd94f8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="362" y="168" width="193" height="20" uuid="226a7fd3-57f8-427b-8268-de936d38974c"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="0" y="0" width="323" height="138" uuid="be168de5-69f2-48c7-8461-a40db50e8530"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="336" y="0" width="219" height="138" uuid="ef77003d-5b99-4a2b-94ae-88d9c90c8c2b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="185" y="91" width="126" height="20" uuid="b15a4f7b-f20f-40b6-8019-234aa9eff3b9"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Teléfono: (809)612-2003]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="91" width="150" height="46" uuid="9dabe9fd-5582-4a1a-9024-c591ea943b7d"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Dirección: Calle Principal Las Palomas, Santiago, República Dominicana]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="111" width="126" height="20" uuid="48510e92-8a0a-466f-a5f4-2b48fc18680b"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[WhatsApp: (829)707-9767]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="11" width="219" height="40" uuid="fa8fe064-1df3-4d0d-b8c6-1bb73d2eca0e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="61" width="100" height="20" uuid="41bdf40e-3dfb-4c44-bc0c-4bd3d2d90386"/>
+				<textElement>
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURA NO. ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="168" width="185" height="20" uuid="a20e49c1-a8a1-4c9c-b3c4-b0bb1dbc03b4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="185" y="168" width="177" height="20" uuid="08dbcc89-f347-4b3f-bc27-4d53788c3236"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="168" width="63" height="20" uuid="f9962cc9-9d0c-4cce-8745-36146941fb6b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="168" width="99" height="20" uuid="b5706941-1c9e-40d2-89d8-c8f31f938b0a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIPO DE PAGO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="190" width="185" height="18" uuid="4e8ff3c4-6ff5-4f1c-ae87-292e1dc36ce6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE DEL PACIENTE: ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="63" y="168" width="122" height="20" uuid="91ef4f03-f0b1-45b7-878b-4de088e3e727"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_Fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="168" width="78" height="20" uuid="508b7a97-67c1-4bbd-84ee-e6ecdf0fe6ae"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_Tipo_Pago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="190" width="370" height="18" uuid="38df8675-068e-47b8-8dce-80d5fc1402c9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="61" width="68" height="20" uuid="6a17712d-f7eb-4f43-a35a-c57a06fb8f0c"/>
+				<textElement>
+					<font fontName="Century Gothic" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_ID_Factura}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="32" y="11" width="67" height="60" uuid="76110c80-69fd-4c69-83ed-05a1c7f0940f"/>
+				<imageExpression><![CDATA["C:\\Users\\Emil Paulino\\Documents\\NetBeansProjects\\ProyectoF\\src\\imagenes\\logoclinica.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="121" y="19" width="175" height="52" uuid="048a185f-8e9e-4129-8607-d61fb6358ca5"/>
+				<imageExpression><![CDATA["C:\\Users\\Emil Paulino\\Documents\\NetBeansProjects\\ProyectoF\\src\\imagenes\\Logo Consultorio.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="357" y="91" width="110" height="20" uuid="faca2a44-406c-443e-8503-fced02d1f2f8"/>
+				<textElement>
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Facturado Por: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="467" y="91" width="71" height="20" uuid="7fe869cd-b4f4-4e67-b293-ecfcae8ae9c7"/>
+				<textElement>
+					<font fontName="Century Gothic" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_Usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="168" width="104" height="20" uuid="688d1794-14e6-4681-a43e-438c120957d0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_doctor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="362" y="168" width="85" height="20" uuid="3d8b0496-bf38-4e23-9a45-cdc50b793494"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ DOCTOR/A: ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="99" height="20" backcolor="#999999" uuid="85335077-3b82-4c9c-9142-1b066b2985a3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="99" y="0" width="98" height="20" backcolor="#999999" uuid="ca6c17a0-97b2-440b-9424-5315eb09e9c3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="197" y="0" width="234" height="20" backcolor="#999999" uuid="ebacf310-44d9-4a06-8d20-07e9beea839d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="431" y="0" width="124" height="20" backcolor="#999999" uuid="7b3bb783-527e-43fa-b123-09ce4ee27674"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="99" height="20" uuid="ffab72bb-f50e-4bc3-ac37-a81c9e72f53e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="0" width="98" height="20" uuid="d925443a-c14d-4ca0-ad50-d7caaa4b8161"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID SERVICIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="0" width="234" height="20" uuid="dbdc993d-f36a-4569-8342-dbc681590559"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="0" width="124" height="20" uuid="a4e57d14-ab3e-493d-b560-70bc5499dc48"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="220" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="99" height="220" uuid="fc67100a-5c15-4249-a3f5-442451a252bc"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="197" y="0" width="234" height="220" uuid="f410aa49-f23d-4224-9d1f-f2de9251f720"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="431" y="0" width="124" height="220" uuid="a9f35b24-7787-468f-823a-b89b59dc6e3b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="99" y="0" width="98" height="220" uuid="380593b1-83c8-4b2f-afce-dd641957beb1"/>
+			</rectangle>
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="167" uuid="fdcf3a25-ed09-4d05-b63f-76771c656c06"/>
+				<subreportParameter name="id_factura">
+					<subreportParameterExpression><![CDATA[$P{Factura}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\Users\\Emil Paulino\\Documents\\NetBeansProjects\\ProyectoF\\build\\classes\\Reportes\\detalle.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="375" y="0" width="56" height="20" uuid="fb866b6f-264a-4495-8fe3-533327e77565"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="375" y="0" width="56" height="20" uuid="7016d42d-2785-40d4-b8c4-f621b0cfcc3a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="431" y="0" width="124" height="20" uuid="30672370-2904-4bc4-8ff3-cf086a9de065"/>
+			</rectangle>
+			<textField pattern="###0.00">
+				<reportElement x="447" y="0" width="108" height="20" uuid="052f889e-9af2-49da-a270-2ef43b4e6b16"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{factura_Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

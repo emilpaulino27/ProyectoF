@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5b073e0c-fc1e-48eb-ad1d-87f7004fa8a0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_factura" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+
+     detalle_factura.`ID_Servicio` AS detalle_factura_ID_Servicio,
+     detalle_factura.`Servicio` AS detalle_factura_Servicio,
+     detalle_factura.`Precio` AS detalle_factura_Precio,
+     detalle_factura.`Cantidad` AS detalle_factura_Cantidad,
+     detalle_factura.`id_factura` AS detalle_factura_id_factura
+FROM
+     `clinica_dental_ep`.`detalle_factura` detalle_factura
+
+
+where detalle_factura.id_factura = $P{id_factura}]]>
+	</queryString>
+	<field name="detalle_factura_ID_Servicio" class="java.lang.String"/>
+	<field name="detalle_factura_Servicio" class="java.lang.String"/>
+	<field name="detalle_factura_Precio" class="java.lang.Double"/>
+	<field name="detalle_factura_Cantidad" class="java.lang.Integer"/>
+	<field name="detalle_factura_id_factura" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="208" y="0" width="211" height="20" uuid="a3f8f953-2788-4468-9722-7534a6ca08d1"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detalle_factura_Servicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="0" width="77" height="20" uuid="c24473e3-cd54-4440-9052-93a4efd6eddb"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detalle_factura_Cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="72" height="20" uuid="7a86348f-961b-422c-accf-daf8c25e3bbc"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detalle_factura_ID_Servicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="0" width="109" height="20" uuid="7c14792e-cc07-486a-bed1-b311d0c40db3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{detalle_factura_Precio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
