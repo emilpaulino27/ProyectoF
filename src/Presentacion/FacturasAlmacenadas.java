@@ -283,7 +283,7 @@ String fecha = (year + "-" + mes+ "-" + dia);
             this.table.setModel(Facturas);
             String sql;
 
-                    sql="SELECT ID_Factura, Fecha, Nombre_Paciente, Apellido_Paciente, Doctor FROM factura";
+                    sql="SELECT ID_Factura, Fecha, Nombre_Paciente, Apellido_Paciente, Doctor FROM factura ORDER BY ID_Factura desc";
 
 
             String []datos=new String [5];
